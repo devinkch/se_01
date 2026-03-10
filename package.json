@@ -1,0 +1,23 @@
+{
+  "name": "se_01",
+  "version": "1.0.0",
+  "description": "SE01 Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devinkch/se_01.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devinkch/se_01/issues"
+  },
+  "homepage": "https://github.com/devinkch/se_01#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
