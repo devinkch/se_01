@@ -44,7 +44,7 @@ main {
   align-items: center;
   justify-content: center;
   align-content: center;
-  background: white;
+  background: #E8E8EA;
   flex: 1;
   width: 100%;
 
@@ -216,4 +216,159 @@ nav a:hover {
   .postcard-model {
     display: none;
   }
+}
+
+/* Create Postcard */
+.cp-wrapper {
+  background: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: calc(100% - 82px);
+  height: calc(100% - 82px);
+  border-radius: 24px;
+}
+
+.cp-postcard-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  background: white;
+  rotate: -4deg;
+}
+
+.cp-input-wrapper-group {
+  display: flex;
+  padding: 40px;
+  width: 600px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  align-content: flex-start;
+  gap: 30px;
+}
+
+.cp-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+}
+
+.cp-input-wrapper .input-label {
+  font-family: 'Mulish';
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.cp-input-wrapper input, textarea {
+  background-color: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  color: #000;
+  display: block;
+  flex: 1;
+  font-family: 'Mulish';
+  font-weight: 400;
+  font-size: 16px;
+  margin: 0;
+  padding: 0 12px;
+  transition: all .2s ease;
+  min-height: 46px;
+  height: 46px;
+  width: 100%;
+}
+
+.cp-input-wrapper textarea {
+  min-height: 160px;
+  height: 100px;
+  padding: 12px;
+  resize: vertical;
+  align-items: flex-start; 
+}
+
+.cp-input-wrapper input:focus, textarea:focus {
+  outline: none;
+  border: 1px solid #1E1E1E;
+}
+
+.postcard {
+  transform: scale(0.8);
+  width: 600px;
+  height: 800px;
+  background: white;
+  box-shadow: 0 0 220px 0 rgba(0, 0, 0, 0.2);
+  margin: 40px;
+}
+
+.postcard-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.postcard-cutout {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.postcard-title {
+  font-family: 'Mulish';
+  font-weight: 900;
+  font-size: 92px;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 60px;
+  text-transform: uppercase;
+}
+
+.postcard-message {
+  font-family: 'Mulish';
+  width: 100%;
+  padding: 0 60px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 18px;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 60px;
+  z-index: 2;
+}
+
+.city-selector {
+  display: flex;
+  gap: 8px;
+}
+.city-selector input[type="radio"] {
+  display: none; 
+}
+.city-selector label {
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  font-family: 'Mulish';
+  font-weight: 400;
+}
+.city-selector input[type="radio"]:checked + label {
+  background: #1E1E1E;
+  color: #fff;
 }

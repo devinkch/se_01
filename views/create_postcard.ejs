@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lustria&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <main>
+    <div class="cp-wrapper">
+      <div class="cp-postcard-wrapper">
+        <div class="postcard">
+          <img src="assets/postcard_img_berlin_cutout.png" alt="Postcard" class="postcard-cutout">
+          <span class="postcard-title">Berlin</span>
+          <span class="postcard-message">Sending you the warmest greetings from the coolest city in the world - where the coffee is strong, the history is deep, and every corner has a story to tell. Wishing you were here!</span>
+          <img src="assets/postcard_img_berlin_bg.jpg" alt="Postcard" class="postcard-bg">
+        </div>
+
+      </div>
+      <div class="cp-input-wrapper-group">
+        <h1  style="text-align: left; font-size: 32px;">Create your own postcard</h1>
+        <div class="cp-input-wrapper">
+          <p class="input-label">Choose a city</p>
+          <div class="city-selector">
+            <input type="radio" name="city" value="Berlin" id="berlin" checked>
+            <label for="berlin">Berlin</label>
+            <input type="radio" name="city" value="Paris" id="paris">
+            <label for="paris">Paris</label>
+            <input type="radio" name="city" value="Amsterdam" id="amsterdam">
+            <label for="amsterdam">Amsterdam</label>
+          </div>
+        </div>
+        <div class="cp-input-wrapper">
+          <p class="input-label">Titel</p>
+          <input type="text" placeholder="City" value="Berlin">
+        </div>
+        <div class="cp-input-wrapper">
+          <p class="input-label">Message</p>
+          <textarea
+            placeholder="Sending you the warmest greetings from the coolest city in the world - where the coffee is strong, the history is deep, and every corner has a story to tell. Wishing you were here!">Sending you the warmest greetings from the coolest city in the world - where the coffee is strong, the history is deep, and every corner has a story to tell. Wishing you were here!</textarea>
+        </div>
+      </div>
+    </div>
+    </div>
+  </main>
+  <footer>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <p>© Devin Koch</p>
+  </footer>
+</body>
+
+</html>

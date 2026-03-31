@@ -2,21 +2,27 @@ const express = require("express");
 const path = require("path");
 
 const app = express();
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 const PORT = 3000;
 
 app.use(express.static(__dirname));
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "index.html"));
+    res.render('index');
 });
 
 
 app.get("/about", (req, res) => {
-    res.sendFile(path.join(__dirname, "about.html"));
+    res.render('about');
 });
 
 app.get("/contact", (req, res) => {
-    res.sendFile(path.join(__dirname, "contact.html"));
+    res.render('contact');
+});
+
+app.get("/create_postcard", (req, res) => {
+  res.render('create_postcard');
 });
 
 
