@@ -48,15 +48,6 @@ app.get("/", (req, res) => {
 });
 
 
-app.get("/about", (req, res) => {
-    res.render('about');
-});
-
-app.get("/contact", (req, res) => {
-    res.render('contact');
-});
-
-
 
 app.get("/create_postcard", (req, res) => {
   res.render('create_postcard', { savedId: null, savedPostcard: null, error: null });
