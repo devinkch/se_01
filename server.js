@@ -23,11 +23,20 @@ const Postcard = mongoose.model('Postcard', {
 
 
 app.post('/create_postcard', async (req, res) => {
+  const { city, title, message, username } = req.body;
+  if (!city || !title || !message || !username) {
+    return res.render('create_postcard', {
+      savedId: null,
+      savedPostcard: req.body,
+      error: 'Please fill in all fields before creating your postcard.'
+    });
+  }
   const postcard = new Postcard(req.body);
   await postcard.save();
-  res.render('create_postcard', { 
+  res.render('create_postcard', {
     savedId: postcard._id,
-    savedPostcard: postcard
+    savedPostcard: postcard,
+    error: null
   });
 });
 
@@ -50,7 +59,7 @@ app.get("/contact", (req, res) => {
 
 
 app.get("/create_postcard", (req, res) => {
-  res.render('create_postcard', { savedId: null, savedPostcard: null });
+  res.render('create_postcard', { savedId: null, savedPostcard: null, error: null });
 });
 
 app.get('/view_postcard', async (req, res) => {

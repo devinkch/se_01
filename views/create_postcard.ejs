@@ -16,12 +16,12 @@
     <div class="cp-wrapper">
       <div class="cp-postcard-wrapper">
         <div class="postcard">
-          <img src="/assets/postcard_img_<%= savedPostcard ? savedPostcard.city.toLowerCase() : 'berlin' %>_cutout.png" alt="Postcard" class="postcard-cutout">
-          <span class="postcard-title" id="postcard-title"><%= savedPostcard ? savedPostcard.title : 'Berlin' %></span>
+          <img src="/assets/postcard_img_<%= (savedPostcard && savedPostcard.city) ? savedPostcard.city.toLowerCase() : 'berlin' %>_cutout.png" alt="Postcard" class="postcard-cutout">
+          <span class="postcard-title" id="postcard-title"><%= savedPostcard ? savedPostcard.title : 'MISS YOU!' %></span>
           <span class="postcard-message" id="postcard-message">
             <%= savedPostcard ? savedPostcard.message : 'Sending you the warmest greetings from the coolest city in the world - where the coffee is strong, the history is deep, and every corner has a story to tell. Wishing you were here!' %>
           </span>
-          <img src="/assets/postcard_img_<%= savedPostcard ? savedPostcard.city.toLowerCase() : 'berlin' %>_bg.jpg" alt="Postcard" class="postcard-bg">
+          <img src="/assets/postcard_img_<%= (savedPostcard && savedPostcard.city) ? savedPostcard.city.toLowerCase() : 'berlin' %>_bg.jpg" alt="Postcard" class="postcard-bg">
         </div>
 
       </div>
@@ -58,7 +58,9 @@
             </div>
             <p style="font-size: 14px; opacity: 0.6; margin-top: 4px;">If you want to be anonymous, leave this field empty</p>
           </div>
-
+          <% if (error) { %>
+            <p style="color: red; font-family: 'Mulish'; font-size: 14px;"><%= error %></p>
+          <% } %>
           <button type="submit" class="button primary" style="width: 100%; padding: 14px; margin-top: 16px;">Create Postcard</button>
           <% if (savedId) { %>
             <div class="success-note-wrapper">
