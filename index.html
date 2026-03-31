@@ -4,39 +4,38 @@
   <meta charset="UTF-8">
   <title>Home</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lustria&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
-  <header>
-    <h1>Devin's Website</h1>
-  </header>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
   <main>
-    <div class="text-wrapper">
-      <h2>Welcome</h2>
-      <p>Test the dynamic routes by clicking on the cards below.</p>
-    </div>
-    <div class="card-grid">
-      <div class="card">
-        <h2><a href="/cards/1">CODE UNIVERSITY</a></h2>
-        <p>Click to learn more</p>
+    <div class="home-wrapper">
+      <img class="postcard-model" id="postcard-model-left" src="assets/postcard_model.jpg" alt="Postcard">
+      <div class="home-content-wrapper">
+        <div class="text-wrapper">
+          <p>Devin Koch</p>
+          <h1 class="home-title">Create your<br>digital postcard </h1>
+          <p>A CODE Project</p>
+        </div>
+        <div class="button-wrapper">
+          <button class="button primary">Create a postcard</button>
+          <button class="button secondary">Open a postcard</button>
+        </div>
       </div>
-      <div class="card">
-        <h2><a href="/cards/2">SE19 Learning Unit</a></h2>
-        <p>Click to learn more</p>
-      </div>
-      <div class="card">
-        <h2><a href="/cards/3">Berlin, Neukölln</a></h2>
-        <p>Click to learn more</p>
-      </div>
+      <img class="postcard-model" src="assets/postcard_model_right.jpg" alt="Postcard">
     </div>
   </main>
   <footer>
-    <p>Devin Koch</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <p>© Devin Koch</p>
   </footer>
 </body>
 

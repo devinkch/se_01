@@ -5,9 +5,10 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  color: #222;
-  background: #fafafa;
+  height: 100vh;
+  overflow: hidden; 
+  display: flex;
+  flex-direction: column;
 }
 
 header {
@@ -16,57 +17,110 @@ header {
   padding: 16px;
 }
 
-header h1 {
-  font-size: 19px;
+h1 {
+  font-size: 42px;
+  font-family: 'Lustria';
+  font-weight: 100;
+  color: #1E1E1E;
 }
 
-nav {
-  background: #444;
-  padding: 8px 16px;
-  display: flex;
-  gap: 16px;
+p {
+  font-size: 16px;
+  font-family: 'Mulish';
+  font-weight: 400;
+  color: #1E1E1E;
 }
 
-nav a {
-  color: #ddd;
-  text-decoration: none;
+.home-title {
+  text-align: center;
+  white-space: nowrap;
 }
 
-nav a:hover {
-  color: #fff;
-  text-decoration: underline;
-}
+
 
 main {
-  padding: 32px;
-  gap: 20px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  background: white;
+  flex: 1;
+  width: 100%;
+
+}
+
+.home-wrapper {
+  display: flex;
+  flex: 1;
+  background-color: #E8E8EA;
+  height: 100%;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 80px;
+}
+
+.postcard-model {
+  width: auto;
+  height: 730px;
+  object-fit: cover;
+}
+
+#postcard-model-left {
+  transform: scaleX(-1);
+}
+
+.home-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.button {
+  padding: 10px 14px;
+  font-size: 16px;
+  font-family: 'Mulish';
+  font-weight: 400;
+  border-radius: 14px;
+  align-self: flex-start;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+}
+
+button:hover {
+  opacity: 0.7;
+}
+
+.primary {
+  background: #1E1E1E;
+  color: #fff;
+}
+
+.secondary {
+  background: #fff;
+  color: #1E1E1E;
 }
 
 .text-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  gap: 12px;
 }
 
-.card-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-
-.card {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 16px;
-}
-
-.card h2 {
-  margin-bottom: 8px;
-  font-size: 18px;
-}
 
 form {
   display: flex;
@@ -104,49 +158,62 @@ button {
   align-self: flex-start;
 }
 
-button:hover {
-  background: #555;
-}
+
 
 footer {
-  background: #333;
-  color: #aaa;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 40px;
+  width: 100%;
+  background: #fff;
+}
+
+footer p {
+  opacity: .4;
   text-align: center;
-  padding: 16px;
-  margin-top: 32px;
-  font-size: 14px;
+  font-size: 16px;
+  font-family: 'Mulish';
 }
 
-@media (min-width: 600px) {
-  .card-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  nav {
-    gap: 32px;
-    padding: 8px 32px;
-  }
-
-  main {
-    padding: 32px;
-  }
+nav {
+  display: flex;
+  gap: 50px;
+  font-family: 'Mulish';
+  font-weight: 400;
+  font-size: 16px;
 }
 
-@media (min-width: 900px) {
-  .card-grid {
-    grid-template-columns: 1fr 1fr 1fr;
+nav a {
+  color: #303030;
+  text-decoration: none;
+  opacity: .4;
+}
+
+nav a:hover {
+  opacity: .7;
+}
+
+@media screen and (max-width: 1200px) {
+
+  #postcard-model-left {
+    display: none;
   }
 
-  header,
-  nav,
-  main,
-  footer {
-    max-width: 960px;
-    margin-left: auto;
-    margin-right: auto;
+  .postcard-model {
+    height: 700px;
+    width: 400px;
   }
 
-  header h1 {
-    font-size: 24px;
+  .home-wrapper {
+    gap: 40px;
+  }
+
+}
+
+@media screen and (max-width: 900px) {
+
+  .postcard-model {
+    display: none;
   }
 }
