@@ -125,7 +125,7 @@ button:hover {
 form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 20px;
   max-width: 500px;
 }
 
@@ -328,7 +328,7 @@ form {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 3;
 }
 
 .postcard-title {
@@ -344,6 +344,7 @@ form {
   white-space: nowrap;
   width: 100%;
   text-align: center;
+  z-index: 2;
 }
 
 .postcard-message {
@@ -358,7 +359,7 @@ form {
   left: 50%;
   transform: translateX(-50%);
   bottom: 60px;
-  z-index: 2;
+  z-index: 4;
 }
 
 .city-selector {
@@ -379,6 +380,44 @@ form {
 .city-selector input[type="radio"]:checked + label {
   background: #1E1E1E;
   color: #fff;
+}
+
+.username-input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 46px;
+  width: 100%;
+}
+
+.username-prefix {
+  padding: 8px 10px;
+  background: #f0f0f0;
+  color: #555;
+  font-family: 'Mulish';
+  font-size: 16px;
+  border-right: 1px solid #ccc;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.username-input-wrapper input {
+  border: none;
+  width: 100%;
+  padding: 8px;
+  font-family: 'Mulish';
+  font-size: 16px;
+  outline: none;
+  height: 100%;
+  width: 100%;
+}
+
+.username-input-wrapper input:focus {
+  border: none!important;
 }
 
 .success-note-wrapper {
@@ -402,4 +441,52 @@ form {
   font-weight: 400;
   font-size: 16px;
   color: #1E1E1E;
+}
+
+.results-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.results-title {
+  font-family: 'Mulish';
+  font-size: 14px;
+  opacity: 0.6;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.postcard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.postcard-list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  text-decoration: none;
+  color: #1E1E1E;
+  font-family: 'Mulish';
+  gap: 12px;
+}
+
+.postcard-list-item:hover {
+  background: #f5f5f5;
+}
+
+.postcard-list-title {
+  font-weight: 700;
+}
+
+.postcard-list-city {
+  opacity: 0.5;
+  font-size: 14px;
 }

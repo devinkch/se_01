@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lustria&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <div class="cp-wrapper">
+            <div class="cp-postcard-wrapper">
+                <div class="postcard">
+                    <img src="<%= postcard ? '/assets/postcard_img_' + postcard.city.toLowerCase() + '_cutout.png' : '/assets/postcard_img_berlin_cutout.png' %>"
+                        alt="Postcard" class="postcard-cutout">
+                    <span class="postcard-title" id="postcard-title">
+                        <%= postcard ? postcard.title : 'Berlin' %>
+                    </span>
+                    <span class="postcard-message" id="postcard-message">
+                        <%= postcard ? postcard.message
+                            : 'Sending you the warmest greetings from the coolest city in the world - where the coffee is strong, the history is deep, and every corner has a story to tell. Wishing you were here!'
+                            %>
+                    </span>
+                    <img src="/assets/postcard_img_<%= (postcard && postcard.city) ? postcard.city.toLowerCase() : 'berlin' %>_bg.jpg"
+                        alt="Postcard" class="postcard-bg">
+                </div>
+
+            </div>
+            <div class="cp-input-wrapper-group">
+                <h1 style="text-align: left; font-size: 32px;">Open your postcard</h1>
+
+                <form method="GET" action="/view_postcard">
+                    <div class="cp-input-wrapper">
+                        <p class="input-label">Postcard ID or @Username</p>
+                        <div class="username-input-wrapper">
+                            <input type="text" name="query" placeholder="Use @devin for the demo" style="margin-left: 4px">
+                        </div>
+                    </div>
+                    <button type="submit" class="button primary" style="width: 100%; padding: 14px;">Search</button>
+                </form>
+
+                <% if (error) { %>
+                    <p style="color: red;">
+                        <%= error %>
+                    </p>
+                    <% } %>
+                    <% if (postcards && postcards.length > 0) { %>
+                        <div class="results-wrapper">
+                        <p class="results-title"><%= postcards.length %> Postcards found:</p>
+                        <div class="postcard-list">
+                          <% postcards.forEach(function(card) { %>
+                            <a href="/view_postcard?query=<%= card._id %>" class="postcard-list-item">
+                              <span class="postcard-list-title"><%= card.title %></span>
+                              <span class="postcard-list-city"><%= card.city %></span>
+                            </a>
+                          <% }) %>
+                        </div>
+                        </div>
+                      <% } %>
+            </div>
+        </div>
+        </div>
+    </main>
+    <footer>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/create_postcard">Create a postcard</a>
+            <a href="/view_postcard">Open a postcard</a>
+        </nav>
+        <p>© Devin Koch</p>
+    </footer>
+</body>
+
+</html>

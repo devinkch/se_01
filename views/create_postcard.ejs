@@ -16,12 +16,12 @@
     <div class="cp-wrapper">
       <div class="cp-postcard-wrapper">
         <div class="postcard">
-          <img src="/assets/postcard_img_berlin_cutout.png" alt="Postcard" class="postcard-cutout">
-          <span class="postcard-title" id="postcard-title">Berlin</span>
-          <span class="postcard-message" id="postcard-message">Sending you the warmest greetings from the coolest city
-            in the world - where the coffee is strong, the history is deep, and every corner has a story to tell.
-            Wishing you were here!</span>
-          <img src="/assets/postcard_img_berlin_bg.jpg" alt="Postcard" class="postcard-bg">
+          <img src="/assets/postcard_img_<%= savedPostcard ? savedPostcard.city.toLowerCase() : 'berlin' %>_cutout.png" alt="Postcard" class="postcard-cutout">
+          <span class="postcard-title" id="postcard-title"><%= savedPostcard ? savedPostcard.title : 'Berlin' %></span>
+          <span class="postcard-message" id="postcard-message">
+            <%= savedPostcard ? savedPostcard.message : 'Sending you the warmest greetings from the coolest city in the world - where the coffee is strong, the history is deep, and every corner has a story to tell. Wishing you were here!' %>
+          </span>
+          <img src="/assets/postcard_img_<%= savedPostcard ? savedPostcard.city.toLowerCase() : 'berlin' %>_bg.jpg" alt="Postcard" class="postcard-bg">
         </div>
 
       </div>
@@ -31,23 +31,34 @@
           <div class="cp-input-wrapper">
             <p class="input-label">Choose a city</p>
             <div class="city-selector">
-              <input type="radio" name="city" value="Berlin" id="berlin" name="city" checked>
+              <input type="radio" name="city" value="Berlin" id="berlin" name="city" <%= savedPostcard ? savedPostcard.city === 'Berlin' ? 'checked' : '' : '' %>>
               <label for="berlin">Berlin</label>
-              <input type="radio" name="city" value="Paris" id="paris" name="city">
+              <input type="radio" name="city" value="Paris" id="paris" name="city" <%= savedPostcard ? savedPostcard.city === 'Paris' ? 'checked' : '' : '' %>>
               <label for="paris">Paris</label>
-              <input type="radio" name="city" value="Amsterdam" id="amsterdam" name="city">
+              <input type="radio" name="city" value="Amsterdam" id="amsterdam" name="city" <%= savedPostcard ? savedPostcard.city === 'Amsterdam' ? 'checked' : '' : '' %>>
               <label for="amsterdam">Amsterdam</label>
             </div>
           </div>
           <div class="cp-input-wrapper">
             <p class="input-label">Titel</p>
-            <input id="input-title" maxlength="12" name="title" type="text" placeholder="City" value="Berlin">
+            <input id="input-title" maxlength="12" name="title" type="text" placeholder="City" value="<%= savedPostcard ? savedPostcard.title : '' %>">
           </div>
           <div class="cp-input-wrapper">
             <p class="input-label">Message</p>
             <textarea id="input-message" name="message"
               placeholder="Sending you the warmest greetings from the coolest city in the world - where the coffee is strong, the history is deep, and every corner has a story to tell. Wishing you were here!">Sending you the warmest greetings from the coolest city in the world - where the coffee is strong, the history is deep, and every corner has a story to tell. Wishing you were here!</textarea>
           </div>
+
+          <div class="cp-input-wrapper">
+            <p class="input-label">Username</p>
+            <div class="username-input-wrapper">
+              <span class="username-prefix">@</span>
+              <input id="input-username" name="username" type="text" placeholder="yourname" 
+              value="<%= savedPostcard ? savedPostcard.username : '' %>">
+            </div>
+            <p style="font-size: 14px; opacity: 0.6; margin-top: 4px;">If you want to be anonymous, leave this field empty</p>
+          </div>
+
           <button type="submit" class="button primary" style="width: 100%; padding: 14px; margin-top: 16px;">Create Postcard</button>
           <% if (savedId) { %>
             <div class="success-note-wrapper">
@@ -63,9 +74,9 @@
   <footer>
     <nav>
       <a href="/">Home</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
-    </nav>
+      <a href="/create_postcard">Create a postcard</a>
+      <a href="/view_postcard">Open a postcard</a>
+  </nav>
     <p>© Devin Koch</p>
   </footer>
   <script src="/preview.js"></script>
