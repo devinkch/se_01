@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/devinkch/se_01#readme",
   "dependencies": {
+    "dotenv": "^17.3.1",
     "ejs": "^5.0.1",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "mongoose": "^9.3.3"
   }
 }

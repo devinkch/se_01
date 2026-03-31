@@ -219,6 +219,10 @@ nav a:hover {
 }
 
 /* Create Postcard */
+
+form {
+  width: 100%;
+}
 .cp-wrapper {
   background: white;
   display: flex;
@@ -307,6 +311,7 @@ nav a:hover {
   background: white;
   box-shadow: 0 0 220px 0 rgba(0, 0, 0, 0.2);
   margin: 40px;
+  overflow: hidden;
 }
 
 .postcard-bg {
@@ -336,6 +341,9 @@ nav a:hover {
   transform: translateX(-50%);
   top: 60px;
   text-transform: uppercase;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
 }
 
 .postcard-message {
@@ -371,4 +379,27 @@ nav a:hover {
 .city-selector input[type="radio"]:checked + label {
   background: #1E1E1E;
   color: #fff;
+}
+
+.success-note-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  gap: 8px;
+  background: #E8E8EA;
+  padding: 16px;
+  border-radius: 12px;
+}
+.success-note-text {
+  font-family: 'Mulish';
+  font-weight: 600;
+  font-size: 16px;
+}
+.success-note-id {
+  font-family: 'Mulish';
+  font-weight: 400;
+  font-size: 16px;
+  color: #1E1E1E;
 }
