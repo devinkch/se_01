@@ -1,16 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Create a postcard</title>
-  <link rel="stylesheet" href="/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Lustria&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
-    rel="stylesheet">
-</head>
+  <%- include('partials/head', { title: 'Create a postcard' }) %>
+
 
 <body>
   <main>
@@ -74,14 +65,9 @@
     </div>
     </div>
   </main>
-  <footer>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/create_postcard">Create a postcard</a>
-      <a href="/view_postcard">Open a postcard</a>
-  </nav>
-    <p>© Devin Koch</p>
-  </footer>
+  
+  <%- include('partials/footer') %>
+
   <script src="/preview.js"></script>
 </body>
 
