@@ -245,18 +245,18 @@ form {
   background: white;
   rotate: -4deg;
 }
-
 .cp-input-wrapper-group {
   display: flex;
   padding: 40px;
   width: 600px;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;  
   align-content: flex-start;
   gap: 30px;
+  overflow-y: auto;              
+  height: 100%;      
 }
-
 .cp-input-wrapper {
   display: flex;
   flex-direction: column;
@@ -435,6 +435,7 @@ form {
 }
 .success-note-text {
   font-family: 'Mulish';
+  text-align: center;
   font-weight: 600;
   font-size: 16px;
 }

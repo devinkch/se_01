@@ -58,6 +58,9 @@
             <div class="success-note-wrapper">
               <p class="success-note-text">Postcard saved! Copy the ID to share your postcard:</p>
               <strong class="success-note-id"><%= savedId %></strong>
+              <p class="success-note-text" style="margin-top: 12px;">Save this edit token to edit or delete your postcard within 10 minutes:</p>
+              <strong class="success-note-id"><%= editToken %></strong>
+              <a href="/edit_postcard/<%= savedId %>?token=<%= editToken %>" class="button secondary" style="display: block; margin-top: 12px; text-align: center;">Edit Postcard</a>
             </div>
           <% } %>
         </form>

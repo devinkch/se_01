@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head', { title: 'Edit postcard' }) %>
+
+<body>
+  <main>
+    <div class="cp-wrapper">
+      <div class="cp-postcard-wrapper">
+        <div class="postcard">
+          <img src="/assets/postcard_img_<%= postcard.city.toLowerCase() %>_cutout.png" alt="Postcard" class="postcard-cutout">
+          <span class="postcard-title" id="postcard-title"><%= postcard.title %></span>
+          <span class="postcard-message" id="postcard-message"><%= postcard.message %></span>
+          <img src="/assets/postcard_img_<%= postcard.city.toLowerCase() %>_bg.jpg" alt="Postcard" class="postcard-bg">
+        </div>
+      </div>
+      <div class="cp-input-wrapper-group">
+        <h1 style="text-align: left; font-size: 32px;">Edit your postcard</h1>
+        <form method="POST" action="/edit_postcard/<%= postcard._id %>">
+          <input type="hidden" name="token" value="<%= token %>">
+
+          <div class="cp-input-wrapper">
+            <p class="input-label">Choose a city</p>
+            <div class="city-selector">
+              <input type="radio" name="city" value="Berlin" id="berlin" <%= postcard.city === 'Berlin' ? 'checked' : '' %>>
+              <label for="berlin">Berlin</label>
+              <input type="radio" name="city" value="Paris" id="paris" <%= postcard.city === 'Paris' ? 'checked' : '' %>>
+              <label for="paris">Paris</label>
+              <input type="radio" name="city" value="Amsterdam" id="amsterdam" <%= postcard.city === 'Amsterdam' ? 'checked' : '' %>>
+              <label for="amsterdam">Amsterdam</label>
+            </div>
+          </div>
+          <div class="cp-input-wrapper">
+            <p class="input-label">Titel</p>
+            <input id="input-title" maxlength="12" name="title" type="text" value="<%= postcard.title %>">
+          </div>
+          <div class="cp-input-wrapper">
+            <p class="input-label">Message</p>
+            <textarea id="input-message" name="message"><%= postcard.message %></textarea>
+          </div>
+          <div class="cp-input-wrapper">
+            <p class="input-label">Username</p>
+            <div class="username-input-wrapper">
+              <span class="username-prefix">@</span>
+              <input id="input-username" name="username" type="text" value="<%= postcard.username %>">
+            </div>
+          </div>
+          <% if (error) { %>
+            <p style="color: red; font-size: 14px;"><%= error %></p>
+          <% } %>
+          <button type="submit" class="button primary" style="width: 100%; padding: 14px; margin-top: 16px;">Save Changes</button>
+        </form>
+      </div>
+    </div>
+  </main>
+  <%- include('partials/footer') %>
+  <script src="/preview.js"></script>
+</body>
+</html>

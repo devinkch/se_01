@@ -54,11 +54,32 @@
                         </div>
                         </div>
                       <% } %>
+                      <% if (postcard) { %>
+                        <div class="cp-input-wrapper" style="margin-top: 24px;">
+                          <p class="input-label">Edit or delete this postcard (within 10 minutes of creation)</p>
+                          <input type="text" id="edit-token-input" placeholder="Enter your edit token">
+                          <div style="display: flex; gap: 8px; margin-top: 8px;">
+                            <a id="edit-btn" href="#" class="button secondary" style="flex: 1; text-align: center;">Edit</a>
+                            <form id="delete-form" method="POST" action="/delete_postcard/<%= postcard._id %>" style="flex: 1;">
+                              <input type="hidden" name="token" id="delete-token">
+                              <button type="submit" class="button" style="width: 100%; background: #e53e3e; color: white;">Delete</button>
+                            </form>
+                          </div>
+                        </div>
+                        <script>
+                          const tokenInput = document.getElementById('edit-token-input');
+                          const editBtn = document.getElementById('edit-btn');
+                          const deleteToken = document.getElementById('delete-token');
+                          tokenInput.addEventListener('input', function() {
+                            editBtn.href = '/edit_postcard/<%= postcard._id %>?token=' + tokenInput.value;
+                            deleteToken.value = tokenInput.value;
+                          });
+                        </script>
+                      <% } %>
             </div>
         </div>
         </div>
     </main>
     <%- include('partials/footer') %>
 </body>
-
 </html>
