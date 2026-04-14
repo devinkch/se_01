@@ -31,21 +31,29 @@ app.post('/create_postcard', async (req, res) => {
     return res.render('create_postcard', {
       savedId: null,
       savedPostcard: req.body,
-      error: 'Please fill in all fields before creating your postcard.'
+      error: 'Please fill in all fields before creating your postcard.',
+      editToken: null
     });
   }
 
-  const editToken = crypto.randomBytes(16).toString('hex');
-  const postcard = new Postcard({ ...req.body, editToken });
-
-  await postcard.save();
-
-  res.render('create_postcard', {
-    savedId: postcard._id,
-    savedPostcard: postcard,
-    editToken: editToken,
-    error: null
-  });
+  try {
+    const editToken = crypto.randomBytes(16).toString('hex');
+    const postcard = new Postcard({ ...req.body, editToken });
+    await postcard.save();
+    res.render('create_postcard', {
+      savedId: postcard._id,
+      savedPostcard: postcard,
+      editToken: editToken,
+      error: null
+    });
+  } catch (e) {
+    res.render('create_postcard', {
+      savedId: null,
+      savedPostcard: req.body,
+      error: 'Something went wrong. Please try again.',
+      editToken: null
+    });
+  }
 });
 
 const PORT = 3000;
